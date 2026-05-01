@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <iframe
-      src="/blaqbonez.html"
+      src="/api/site"
       title="Blaqbonez Official"
       style={{
         position: "fixed",
