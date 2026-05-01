@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BLAQBONEZ — Best Rapper In Africa</title>
+<meta name="description" content="Official site of Blaqbonez — Nigerian rapper, Chocolate City signee, self-proclaimed Best Rapper In Africa." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@900&family=Inter:wght@300;400;500;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0a0a0a;
+  --gold:#c9a84c;
+  --gold-glow:#e8c870;
+  --blood:#8b0000;
+  --off:#f5f5f0;
+  --amber:#ffb347;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--black)}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--black);
+  color:var(--off);
+  overflow-x:hidden;
+  cursor:none;
+}
+@media (hover: none){ body{cursor:auto} .cursor,.cursor-dot{display:none!important} }
+
+/* Film grain overlay */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  pointer-events:none;
+  z-index:9998;
+  opacity:.08;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  animation:grain 0.7s steps(6) infinite;
+}
+@keyframes grain{
+  0%,100%{transform:translate(0,0)}
+  10%{transform:translate(-5%,-10%)}
+  30%{transform:translate(3%,-15%)}
+  50%{transform:translate(12%,9%)}
+  70%{transform:translate(-9%,4%)}
+  90%{transform:translate(4%,-2%)}
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px}
+
+/* Custom cursor */
+.cursor{
+  position:fixed;width:32px;height:32px;border:1.5px solid var(--gold);
+  border-radius:50%;pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .25s ease,height .25s ease,background .25s ease,border-color .25s ease;
+  mix-blend-mode:difference;
+}
+.cursor.expand{width:64px;height:64px;background:var(--gold);border-color:var(--gold)}
+.cursor-dot{
+  position:fixed;width:4px;height:4px;background:var(--gold);
+  border-radius:50%;pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+}
+
+/* Typography */
+.mono{font-family:'Courier Prime',monospace;letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;color:var(--gold)}
+.headline{font-family:'Playfair Display',serif;font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.02em}
+.bebas{font-family:'Bebas Neue',sans-serif;letter-spacing:.05em}
+
+/* BRIA watermark */
+.bria-watermark{
+  position:absolute;font-family:'Playfair Display',serif;font-weight:900;
+  font-size:clamp(8rem,22vw,22rem);color:transparent;
+  -webkit-text-stroke:1px rgba(201,168,76,.08);
+  pointer-events:none;user-select:none;line-height:.8;
+  z-index:0;
+}
+
+/* Vinyl divider */
+.vinyl-divider{
+  height:24px;width:100%;
+  background:repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    rgba(201,168,76,.15) 3px,
+    rgba(201,168,76,.15) 4px
+  );
+  position:relative;
+}
+.vinyl-divider::after{
+  content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 20px var(--gold)
+}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.25rem 2.5rem;
+  transition:all .4s ease;
+  background:transparent;
+}
+.nav.scrolled{
+  background:rgba(10,10,10,.6);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(201,168,76,.15);
+}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.2em;color:var(--off)}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  position:relative;color:var(--off);text-decoration:none;
+  font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;
+  font-family:'Courier Prime',monospace;
+  padding-bottom:4px;
+}
+.nav-links a::after{
+  content:"";position:absolute;bottom:0;left:0;width:0;height:1px;
+  background:var(--gold);transition:width .35s ease;
+}
+.nav-links a:hover::after{width:100%}
+@media(max-width:640px){.nav{padding:1rem 1.25rem}.nav-links{gap:1.25rem}.nav-links a{font-size:.65rem}}
+
+/* HERO */
+.hero{
+  position:relative;height:100vh;min-height:640px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;background:#000;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background-image:url("https://picsum.photos/1920/1080?random=1&grayscale&blur=1");
+  background-size:cover;background-position:center;
+  opacity:0;transform:scale(1.15);
+  filter:brightness(.45) contrast(1.1);
+}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(10,10,10,.4) 0%,rgba(10,10,10,.6) 60%,rgba(10,10,10,1) 100%);
+}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 1.5rem;width:100%}
+.hero-label{margin-bottom:1.5rem;opacity:0}
+.hero-name{
+  font-family:'Playfair Display',serif;font-weight:900;
+  font-size:clamp(4rem,18vw,16rem);
+  text-transform:uppercase;line-height:.85;
+  color:var(--off);letter-spacing:-.03em;
+  display:flex;justify-content:center;flex-wrap:wrap;
+}
+.hero-name span{display:inline-block;opacity:0;transform:translateX(-200px) skewX(-20deg)}
+.hero-sub{
+  margin-top:1.5rem;font-family:'Courier Prime',monospace;
+  font-size:clamp(.9rem,2vw,1.4rem);color:var(--gold);
+  letter-spacing:.3em;text-transform:uppercase;min-height:1.5em;
+}
+.hero-sub::after{content:"|";animation:blink 1s step-end infinite;margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+.hero-cta{
+  display:inline-block;margin-top:2.5rem;
+  padding:1rem 2.5rem;border:1.5px solid var(--gold);
+  color:var(--gold);text-decoration:none;
+  font-family:'Courier Prime',monospace;letter-spacing:.3em;
+  text-transform:uppercase;font-size:.85rem;
+  background:transparent;
+  transition:all .35s ease;opacity:0;
+  position:relative;overflow:hidden;
+}
+.hero-cta::before{
+  content:"";position:absolute;inset:0;background:var(--gold);
+  transform:translateY(101%);transition:transform .4s ease;z-index:-1;
+}
+.hero-cta:hover{color:var(--black)}
+.hero-cta:hover::before{transform:translateY(0)}
+.scroll-indicator{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  z-index:3;color:var(--gold);font-size:1.5rem;
+  animation:bounce 2s infinite;
+}
+@keyframes bounce{
+  0%,100%{transform:translate(-50%,0)}
+  50%{transform:translate(-50%,12px)}
+}
+
+/* MARQUEE */
+.marquee{
+  background:var(--gold);color:var(--black);
+  padding:1.25rem 0;overflow:hidden;
+  border-top:1px solid #000;border-bottom:1px solid #000;
+  position:relative;
+}
+.marquee-track{
+  display:flex;width:max-content;
+  animation:scroll 30s linear infinite;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.6rem;letter-spacing:.15em;
+  white-space:nowrap;
+}
+.marquee-track span{padding:0 1.5rem}
+.marquee-track .dot{color:var(--blood);font-weight:900}
+@keyframes scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* SECTIONS */
+section{position:relative;padding:8rem 2.5rem;overflow:hidden}
+@media(max-width:640px){section{padding:5rem 1.25rem}}
+.section-label{margin-bottom:1rem}
+.section-title{
+  font-family:'Playfair Display',serif;font-weight:900;
+  font-size:clamp(2.5rem,7vw,6rem);
+  text-transform:uppercase;line-height:.9;
+  margin-bottom:3rem;letter-spacing:-.02em;
+}
+.section-title .gold{color:var(--gold)}
+
+/* ABOUT */
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;
+  align-items:center;max-width:1300px;margin:0 auto;
+  position:relative;z-index:1;
+}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:3rem}}
+.about-img{
+  position:relative;aspect-ratio:4/5;overflow:hidden;
+  border:1px solid rgba(201,168,76,.2);
+}
+.about-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3) contrast(1.1)}
+.about-img::after{
+  content:"BRIA";position:absolute;bottom:1rem;right:1rem;
+  font-family:'Courier Prime',monospace;font-size:.7rem;
+  letter-spacing:.3em;color:var(--gold);
+  background:rgba(0,0,0,.6);padding:.4rem .7rem;
+}
+.about-text p{
+  font-size:1.05rem;line-height:1.8;color:rgba(245,245,240,.85);
+  margin-top:1.5rem;font-weight:300;
+}
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;
+  margin-top:6rem;max-width:1300px;margin-left:auto;margin-right:auto;
+  border-top:1px solid rgba(201,168,76,.2);
+  border-bottom:1px solid rgba(201,168,76,.2);
+  padding:3rem 0;
+}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr);gap:2.5rem 1rem}}
+.stat{text-align:center}
+.stat-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.5rem,5vw,4.5rem);color:var(--gold);
+  line-height:1;display:block;
+}
+.stat-label{font-family:'Courier Prime',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,245,240,.6);margin-top:.5rem;display:block}
+
+/* DISCOGRAPHY */
+.albums{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;
+  max-width:1300px;margin:0 auto;
+}
+@media(max-width:900px){
+  .albums{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:1.5rem;padding-bottom:1rem;margin:0 -1.25rem;padding-left:1.25rem;padding-right:1.25rem}
+  .album{min-width:80%;scroll-snap-align:center}
+}
+.album{
+  background:#111;border:1px solid rgba(201,168,76,.15);
+  padding:1.5rem;perspective:1000px;
+  transition:all .4s ease;position:relative;
+}
+.album-cover{
+  aspect-ratio:1;overflow:hidden;margin-bottom:1.5rem;
+  transition:transform .5s ease,box-shadow .5s ease;
+  transform-style:preserve-3d;
+}
+.album-cover img{width:100%;height:100%;object-fit:cover;filter:grayscale(.4) contrast(1.15)}
+.album:hover .album-cover{
+  transform:rotateY(-8deg) rotateX(4deg) translateY(-10px);
+  box-shadow:0 30px 60px -20px rgba(201,168,76,.4),0 0 40px rgba(201,168,76,.2);
+}
+.album-year{font-family:'Courier Prime',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--gold)}
+.album-title{font-family:'Playfair Display',serif;font-weight:900;font-size:1.8rem;margin:.5rem 0 1rem;text-transform:uppercase;line-height:1}
+.album-meta{font-size:.85rem;color:rgba(245,245,240,.6);line-height:1.6;margin-bottom:.8rem}
+.album-meta strong{color:var(--off);font-weight:500}
+.album-note{
+  font-family:'Courier Prime',monospace;font-size:.7rem;
+  color:var(--gold);border-left:2px solid var(--gold);
+  padding-left:.75rem;margin:1rem 0;letter-spacing:.1em;
+}
+.album-stream{
+  display:inline-block;margin-top:1rem;padding:.6rem 1.5rem;
+  border:1px solid var(--gold);color:var(--gold);
+  text-decoration:none;font-family:'Courier Prime',monospace;
+  font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;
+  transition:all .3s ease;
+}
+.album-stream:hover{background:var(--gold);color:var(--black)}
+
+/* SPOTIFY */
+.spotify-section{background:#080808;text-align:center}
+.spotify-wrap{max-width:900px;margin:0 auto}
+.spotify-wrap iframe{display:block;width:100%;border-radius:12px;box-shadow:0 0 60px rgba(201,168,76,.15)}
+.spotify-sub{margin-top:1.5rem;font-family:'Courier Prime',monospace;font-size:.85rem;color:var(--gold);letter-spacing:.2em;text-transform:uppercase}
+
+/* TIMELINE */
+.timeline{position:relative;max-width:1100px;margin:0 auto;padding:2rem 0}
+.timeline::before{
+  content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,transparent,var(--gold) 10%,var(--gold) 90%,transparent);
+  transform:translateX(-50%);
+}
+.t-entry{
+  display:grid;grid-template-columns:1fr 80px 1fr;gap:2rem;
+  margin-bottom:4rem;align-items:start;
+}
+.t-dot{
+  width:14px;height:14px;border-radius:50%;background:var(--gold);
+  justify-self:center;margin-top:8px;
+  box-shadow:0 0 0 4px rgba(201,168,76,.15),0 0 20px var(--gold);
+}
+.t-card{
+  background:#0f0f0f;border:1px solid rgba(201,168,76,.15);
+  padding:1.5rem 1.75rem;
+}
+.t-year{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);line-height:1;margin-bottom:.5rem}
+.t-text{font-size:.95rem;line-height:1.6;color:rgba(245,245,240,.85);font-weight:300}
+.t-entry.left .t-card{grid-column:1;text-align:right}
+.t-entry.right .t-card{grid-column:3}
+.t-entry.left .t-card-spacer{grid-column:3}
+.t-entry.right .t-card-spacer{grid-column:1}
+@media(max-width:768px){
+  .timeline::before{left:20px}
+  .t-entry{grid-template-columns:40px 1fr;gap:1rem}
+  .t-dot{grid-column:1;justify-self:start;margin-left:13px}
+  .t-entry.left .t-card,.t-entry.right .t-card{grid-column:2;text-align:left}
+}
+
+/* CONNECT */
+.connect-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:1100px;margin:0 auto}
+@media(max-width:640px){.connect-grid{grid-template-columns:1fr}}
+.social-tile{
+  display:flex;align-items:center;gap:1.5rem;
+  padding:2rem;border:1px solid rgba(201,168,76,.2);
+  background:#0d0d0d;text-decoration:none;color:var(--off);
+  transition:all .4s ease;position:relative;overflow:hidden;
+}
+.social-tile::before{
+  content:"";position:absolute;inset:0;background:var(--gold);
+  transform:translateX(-101%);transition:transform .45s ease;z-index:0;
+}
+.social-tile > *{position:relative;z-index:1}
+.social-tile:hover{border-color:var(--gold)}
+.social-tile:hover::before{transform:translateX(0)}
+.social-tile:hover *{color:var(--black)!important}
+.social-tile svg{width:42px;height:42px;fill:var(--gold);flex-shrink:0;transition:fill .4s ease}
+.social-tile:hover svg{fill:var(--black)}
+.social-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.1em;display:block;line-height:1}
+.social-handle{font-family:'Courier Prime',monospace;font-size:.75rem;letter-spacing:.15em;color:rgba(245,245,240,.6);margin-top:.4rem;display:block;text-transform:uppercase}
+
+/* FOOTER */
+.footer{
+  background:#000;border-top:1px solid var(--gold);
+  padding:4rem 2.5rem 2rem;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:center;
+  position:relative;
+}
+@media(max-width:768px){.footer{grid-template-columns:1fr;text-align:center;gap:2rem}}
+.footer-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:2.5rem;color:var(--gold);text-transform:uppercase;letter-spacing:-.02em}
+.footer-nav{display:flex;justify-content:center;gap:2rem;list-style:none}
+.footer-nav a{color:var(--off);text-decoration:none;font-family:'Courier Prime',monospace;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s}
+.footer-nav a:hover{color:var(--gold)}
+.footer-copy{text-align:right;font-family:'Courier Prime',monospace;font-size:.7rem;letter-spacing:.15em;color:rgba(245,245,240,.5);text-transform:uppercase}
+@media(max-width:768px){.footer-copy{text-align:center}}
+
+/* Reveal helpers */
+.reveal{opacity:0;transform:translateY(40px)}
+</style>
+</head>
+<body>
+
+<div class="cursor"></div>
+<div class="cursor-dot"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">BLAQ<span>·</span>BONEZ</div>
+  <ul class="nav-links">
+    <li><a href="#about" data-hover>About</a></li>
+    <li><a href="#music" data-hover>Music</a></li>
+    <li><a href="#rise" data-hover>The Rise</a></li>
+    <li><a href="#connect" data-hover>Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-content">
+    <div class="hero-label mono" id="heroLabel">EST. 2010 · CHOCOLATE CITY</div>
+    <h1 class="hero-name" id="heroName" aria-label="BLAQBONEZ">
+      <span>B</span><span>L</span><span>A</span><span>Q</span><span>B</span><span>O</span><span>N</span><span>E</span><span>Z</span>
+    </h1>
+    <p class="hero-sub" id="heroSub"></p>
+    <a href="#music" class="hero-cta" id="heroCta" data-hover>Stream Now</a>
+  </div>
+  <div class="scroll-indicator">▾</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Best Rapper In Africa</span><span class="dot">●</span>
+    <span>Chocolate City</span><span class="dot">●</span>
+    <span>No Excuses</span><span class="dot">●</span>
+    <span>Emeka The Stallion</span><span class="dot">●</span>
+    <span>Young Preacher</span><span class="dot">●</span>
+    <span>Emeka Must Shine</span><span class="dot">●</span>
+    <span>1.5M Spotify Listeners</span><span class="dot">●</span>
+    <span>Rolling Stone Top Albums 2021</span><span class="dot">●</span>
+    <!-- duplicate for seamless loop -->
+    <span>Best Rapper In Africa</span><span class="dot">●</span>
+    <span>Chocolate City</span><span class="dot">●</span>
+    <span>No Excuses</span><span class="dot">●</span>
+    <span>Emeka The Stallion</span><span class="dot">●</span>
+    <span>Young Preacher</span><span class="dot">●</span>
+    <span>Emeka Must Shine</span><span class="dot">●</span>
+    <span>1.5M Spotify Listeners</span><span class="dot">●</span>
+    <span>Rolling Stone Top Albums 2021</span><span class="dot">●</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="bria-watermark" style="top:2rem;right:-2rem">BRIA</div>
+  <div class="about-grid">
+    <div class="about-img reveal">
+      <img src="https://picsum.photos/800/1000?random=11&grayscale" alt="Blaqbonez portrait" loading="lazy" />
+    </div>
+    <div class="about-text">
+      <div class="section-label mono reveal">CHAPTER 01 — ORIGIN</div>
+      <h2 class="section-title reveal">The <span class="gold">Story</span></h2>
+      <p class="reveal">Born Emeka Akumefule on January 29, 1996, in Imo State, Nigeria — raised in a Yoruba and Urhobo mixed environment, shaped by two worlds. At 13, a song on the radio changed everything.</p>
+      <p class="reveal">By 16, he'd beaten 3,000 rappers in Terry Tha Rapman's Zombie Competition. By 2019, The New York Times called him one of the new guards of Nigerian music. Signed to Chocolate City. Studied Computer Engineering at OAU.</p>
+      <p class="reveal">Declared himself the Best Rapper in Africa — and dared anyone to prove him wrong.</p>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat reveal"><span class="stat-num" data-count="1.5">0</span><span class="stat-label">M+ Spotify Listeners</span></div>
+    <div class="stat reveal"><span class="stat-num" data-count="2">0</span><span class="stat-label">M+ Twitter Followers</span></div>
+    <div class="stat reveal"><span class="stat-num" data-count="1">0</span><span class="stat-label">M+ Instagram</span></div>
+    <div class="stat reveal"><span class="stat-num" data-count="3" data-suffix="">0</span><span class="stat-label">Studio Albums</span></div>
+  </div>
+</section>
+
+<div class="vinyl-divider"></div>
+
+<!-- DISCOGRAPHY -->
+<section id="music">
+  <div class="bria-watermark" style="bottom:2rem;left:-3rem">BRIA</div>
+  <div class="section-label mono reveal" style="text-align:center">CHAPTER 02 — DISCOGRAPHY</div>
+  <h2 class="section-title reveal" style="text-align:center">The <span class="gold">Catalogue</span></h2>
+
+  <div class="albums">
+    <article class="album reveal" data-hover>
+      <div class="album-cover"><img src="https://picsum.photos/600/600?random=21&grayscale" alt="Sex Over Love" loading="lazy" /></div>
+      <div class="album-year">2021 · Chocolate City / 100 Crowns</div>
+      <h3 class="album-title">Sex Over Love</h3>
+      <div class="album-meta"><strong>14 tracks</strong></div>
+      <div class="album-meta">Feat. Amaarae, Buju (BNXN), Tiwa Savage, Nasty C, Joeboy, Laycon</div>
+      <div class="album-note">Rolling Stone Top Albums of 2021</div>
+      <a href="https://open.spotify.com/artist/12kjvw4e3gLp6qVHO65n7W" target="_blank" rel="noopener noreferrer" class="album-stream" data-hover>Stream →</a>
+    </article>
+
+    <article class="album reveal" data-hover>
+      <div class="album-cover"><img src="https://picsum.photos/600/600?random=22&grayscale" alt="Young Preacher" loading="lazy" /></div>
+      <div class="album-year">2022</div>
+      <h3 class="album-title">Young Preacher</h3>
+      <div class="album-meta"><strong>14 tracks</strong></div>
+      <div class="album-meta">Feat. Lojay, Amaarae, Blxckie, Takura & Bien (Sauti Sol)</div>
+      <div class="album-note">"Back in Uni" (prod. Jae5) — viral sensation</div>
+      <a href="https://open.spotify.com/artist/12kjvw4e3gLp6qVHO65n7W" target="_blank" rel="noopener noreferrer" class="album-stream" data-hover>Stream →</a>
+    </article>
+
+    <article class="album reveal" data-hover>
+      <div class="album-cover"><img src="https://picsum.photos/600/600?random=23&grayscale" alt="Emeka Must Shine" loading="lazy" /></div>
+      <div class="album-year">2023 · Chocolate City Music</div>
+      <h3 class="album-title">Emeka Must Shine</h3>
+      <div class="album-meta"><strong>14 tracks</strong></div>
+      <div class="album-meta">Feat. Black Sherif, Jeriq, Victony, Odumodublvck, Zlatan, Ludacris, Young Jonn</div>
+      <div class="album-note">Multiple Headies Nominations · Guinness Endorsement</div>
+      <a href="https://open.spotify.com/artist/12kjvw4e3gLp6qVHO65n7W" target="_blank" rel="noopener noreferrer" class="album-stream" data-hover>Stream →</a>
+    </article>
+  </div>
+</section>
+
+<div class="vinyl-divider"></div>
+
+<!-- SPOTIFY -->
+<section class="spotify-section" id="listen">
+  <div class="section-label mono reveal" style="text-align:center">CHAPTER 03 — PLAY</div>
+  <h2 class="section-title reveal" style="text-align:center">Listen <span class="gold">Now</span></h2>
+  <div class="spotify-wrap reveal">
+    <iframe
+      src="https://open.spotify.com/embed/artist/12kjvw4e3gLp6qVHO65n7W"
+      width="100%"
+      height="352"
+      frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+    <p class="spotify-sub">1.5M Monthly Listeners on Spotify</p>
+  </div>
+</section>
+
+<div class="vinyl-divider"></div>
+
+<!-- TIMELINE -->
+<section id="rise">
+  <div class="bria-watermark" style="top:5rem;left:-2rem">BRIA</div>
+  <div class="section-label mono reveal" style="text-align:center">CHAPTER 04 — ASCENSION</div>
+  <h2 class="section-title reveal" style="text-align:center">The <span class="gold">Rise</span></h2>
+
+  <div class="timeline">
+    <div class="t-entry left reveal"><div class="t-card"><div class="t-year">2010</div><div class="t-text">Dropped first mixtape "The Black Mamba".</div></div><div class="t-dot"></div><div class="t-card-spacer"></div></div>
+    <div class="t-entry right reveal"><div class="t-card-spacer"></div><div class="t-dot"></div><div class="t-card"><div class="t-year">2012</div><div class="t-text">Won Terry Tha Rapman's Zombie Competition — beat 3,000 rappers at age 16.</div></div></div>
+    <div class="t-entry left reveal"><div class="t-card"><div class="t-year">2018</div><div class="t-text">Signed to Chocolate City. Released "Bad Boy Blaq" — exec. produced by M.I Abaga.</div></div><div class="t-dot"></div><div class="t-card-spacer"></div></div>
+    <div class="t-entry right reveal"><div class="t-card-spacer"></div><div class="t-dot"></div><div class="t-card"><div class="t-year">2019</div><div class="t-text">Declared himself "Best Rapper In Africa (BRIA)". Profiled by The New York Times. Released "Mr. Boombastic" EP.</div></div></div>
+    <div class="t-entry left reveal"><div class="t-card"><div class="t-year">2021</div><div class="t-text">"Sex Over Love" — debut album drops. Rolling Stone Top Albums. Co-signs from Wizkid & Burna Boy.</div></div><div class="t-dot"></div><div class="t-card-spacer"></div></div>
+    <div class="t-entry right reveal"><div class="t-card-spacer"></div><div class="t-dot"></div><div class="t-card"><div class="t-year">2022</div><div class="t-text">"Young Preacher" album. "Back in Uni" goes viral.</div></div></div>
+    <div class="t-entry left reveal"><div class="t-card"><div class="t-year">2023</div><div class="t-text">"Emeka Must Shine" album. 14 tracks. Ludacris collab. Guinness Nigeria endorsement.</div></div><div class="t-dot"></div><div class="t-card-spacer"></div></div>
+    <div class="t-entry right reveal"><div class="t-card-spacer"></div><div class="t-dot"></div><div class="t-card"><div class="t-year">2024+</div><div class="t-text">Named 2nd in Top 50 African Rappers. Described by The Guardian as "carrying the torch of Nigerian rap."</div></div></div>
+  </div>
+</section>
+
+<div class="vinyl-divider"></div>
+
+<!-- CONNECT -->
+<section id="connect">
+  <div class="section-label mono reveal" style="text-align:center">CHAPTER 05 — CONNECT</div>
+  <h2 class="section-title reveal" style="text-align:center">Find <span class="gold">Emeka</span></h2>
+
+  <div class="connect-grid">
+    <a class="social-tile reveal" data-hover href="https://www.instagram.com/blaqbonez/" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 .01 4.1.06 1.1.05 1.8.22 2.4.46.7.27 1.3.62 1.9 1.2.6.6.95 1.2 1.2 1.9.24.6.41 1.3.46 2.4.05 1.1.06 1.4.06 4.1s-.01 3-.06 4.1c-.05 1.1-.22 1.8-.46 2.4-.27.7-.62 1.3-1.2 1.9-.6.6-1.2.95-1.9 1.2-.6.24-1.3.41-2.4.46-1.1.05-1.4.06-4.1.06s-3-.01-4.1-.06c-1.1-.05-1.8-.22-2.4-.46-.7-.27-1.3-.62-1.9-1.2-.6-.6-.95-1.2-1.2-1.9-.24-.6-.41-1.3-.46-2.4C2.01 15 2 14.7 2 12s.01-3 .06-4.1c.05-1.1.22-1.8.46-2.4.27-.7.62-1.3 1.2-1.9.6-.6 1.2-.95 1.9-1.2.6-.24 1.3-.41 2.4-.46C9 2.01 9.3 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm6.5-.5a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0zM12 9a3 3 0 110 6 3 3 0 010-6z"/></svg>
+      <div><span class="social-name">Instagram</span><span class="social-handle">@blaqbonez · 1M Followers</span></div>
+    </a>
+    <a class="social-tile reveal" data-hover href="https://x.com/BlaqBonez" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></svg>
+      <div><span class="social-name">Twitter / X</span><span class="social-handle">@BlaqBonez · 2M Followers</span></div>
+    </a>
+    <a class="social-tile reveal" data-hover href="https://www.youtube.com/@blaqbonezmusic" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24"><path d="M23.5 6.5a3 3 0 00-2.1-2.1C19.5 4 12 4 12 4s-7.5 0-9.4.4A3 3 0 00.5 6.5C0 8.4 0 12 0 12s0 3.6.5 5.5A3 3 0 002.6 19.6C4.5 20 12 20 12 20s7.5 0 9.4-.4a3 3 0 002.1-2.1C24 15.6 24 12 24 12s0-3.6-.5-5.5zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg>
+      <div><span class="social-name">YouTube</span><span class="social-handle">Official Channel</span></div>
+    </a>
+    <a class="social-tile reveal" data-hover href="https://open.spotify.com/artist/12kjvw4e3gLp6qVHO65n7W" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm5.5 17.3a.75.75 0 01-1 .25c-2.8-1.7-6.3-2.1-10.5-1.1a.75.75 0 01-.3-1.5c4.5-1 8.4-.6 11.5 1.3.4.2.5.7.3 1.1zm1.5-3.3a.94.94 0 01-1.3.3c-3.2-2-8.1-2.5-11.9-1.4a.94.94 0 11-.5-1.8c4.4-1.3 9.8-.7 13.5 1.5.4.3.5.9.2 1.4zm.1-3.4C15.3 8.3 8.7 8.1 5.1 9.2a1.13 1.13 0 11-.6-2.2c4.2-1.3 11.4-1 15.7 1.5a1.13 1.13 0 11-1.1 1.9z"/></svg>
+      <div><span class="social-name">Spotify</span><span class="social-handle">1.5M Monthly Listeners</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="footer-logo">Blaqbonez</div>
+  <ul class="footer-nav">
+    <li><a href="#about" data-hover>About</a></li>
+    <li><a href="#music" data-hover>Music</a></li>
+    <li><a href="#connect" data-hover>Connect</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Blaqbonez · Chocolate City Music</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+<script defer>
+window.addEventListener('load', () => {
+  // Custom cursor
+  const cursor = document.querySelector('.cursor');
+  const dot = document.querySelector('.cursor-dot');
+  let mx=0,my=0,cx=0,cy=0;
+  window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+  function loop(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(loop);} loop();
+  document.querySelectorAll('[data-hover], a, button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cursor.classList.add('expand'));
+    el.addEventListener('mouseleave',()=>cursor.classList.remove('expand'));
+  });
+
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll',()=>{ nav.classList.toggle('scrolled', window.scrollY>50); });
+
+  if (typeof gsap === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero entrance
+  const tl = gsap.timeline();
+  tl.to('#heroBg', {opacity:1, scale:1, duration:6, ease:'power2.out'}, 0)
+    .to('#heroLabel', {opacity:1, y:0, duration:1, ease:'power3.out'}, 0.4)
+    .to('#heroName span', {opacity:1, x:0, skewX:0, duration:.8, stagger:0.07, ease:'power4.out'}, 0.6)
+    .to('#heroCta', {opacity:1, duration:1, ease:'power2.out'}, 1.8);
+
+  // Typewriter
+  const subText = 'Best Rapper In Africa';
+  const subEl = document.getElementById('heroSub');
+  let i=0;
+  setTimeout(()=> {
+    const typer = setInterval(()=>{
+      subEl.textContent = subText.slice(0,i++);
+      if(i>subText.length) clearInterval(typer);
+    },70);
+  }, 1600);
+
+  // Hero parallax
+  gsap.to('#heroBg', {
+    yPercent: 25,
+    ease:'none',
+    scrollTrigger:{trigger:'#hero', start:'top top', end:'bottom top', scrub:true}
+  });
+
+  // Reveal on scroll
+  gsap.utils.toArray('.reveal').forEach(el=>{
+    gsap.to(el, {
+      opacity:1, y:0, duration:1, ease:'power3.out',
+      scrollTrigger:{trigger:el, start:'top 85%'}
+    });
+  });
+
+  // Album scale-up
+  gsap.utils.toArray('.album').forEach((el,idx)=>{
+    gsap.fromTo(el, {scale:.85, opacity:0}, {
+      scale:1, opacity:1, duration:1, delay:idx*.1, ease:'power3.out',
+      scrollTrigger:{trigger:el, start:'top 85%'}
+    });
+  });
+
+  // Timeline alternating slide
+  gsap.utils.toArray('.t-entry').forEach(el=>{
+    const fromX = el.classList.contains('left') ? -80 : 80;
+    gsap.fromTo(el, {x:fromX, opacity:0}, {
+      x:0, opacity:1, duration:1, ease:'power3.out',
+      scrollTrigger:{trigger:el, start:'top 85%'}
+    });
+  });
+
+  // Stats count up
+  gsap.utils.toArray('.stat-num').forEach(el=>{
+    const target = parseFloat(el.dataset.count);
+    const obj = {v:0};
+    ScrollTrigger.create({
+      trigger: el, start:'top 85%', once:true,
+      onEnter:()=> gsap.to(obj, {v:target, duration:2, ease:'power2.out',
+        onUpdate:()=>{ el.textContent = (target % 1 === 0) ? Math.floor(obj.v) : obj.v.toFixed(1); }
+      })
+    });
+  });
+
+  // Footer reveal
+  gsap.fromTo('#footer', {y:80, opacity:0}, {
+    y:0, opacity:1, duration:1.2, ease:'power3.out',
+    scrollTrigger:{trigger:'#footer', start:'top 95%'}
+  });
+});
+</script>
+</body>
+</html>
