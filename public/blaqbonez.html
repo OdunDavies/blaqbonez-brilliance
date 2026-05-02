@@ -69,7 +69,64 @@ body::before{
 }
 
 /* Typography */
-.mono{font-family:'Courier Prime',monospace;letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;color:var(--gold)}
+.mono{font-family:'Courier Prime',monospace;letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;color:var(--off)}
+
+/* ============ RED EDGE ANIMATIONS ============ */
+/* Animated red wipe line under section titles */
+.edge-line{
+  position:relative;display:block;height:1px;width:120px;
+  background:rgba(225,6,0,.2);overflow:hidden;margin:1.25rem 0 2.5rem;
+}
+.edge-line::after{
+  content:"";position:absolute;inset:0;width:40%;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  animation:edge-wipe 2.6s ease-in-out infinite;
+}
+@keyframes edge-wipe{
+  0%{transform:translateX(-100%)}
+  100%{transform:translateX(350%)}
+}
+
+/* Section frame with thin red top + animated corner ticks */
+.section-frame{position:relative}
+.section-frame::before,
+.section-frame::after{
+  content:"";position:absolute;top:0;height:1px;
+  background:var(--gold);
+}
+.section-frame::before{left:0;width:60px;animation:tick-grow 3s ease-in-out infinite}
+.section-frame::after{right:0;width:60px;animation:tick-grow 3s ease-in-out infinite reverse}
+@keyframes tick-grow{
+  0%,100%{width:40px;opacity:.4}
+  50%{width:120px;opacity:1}
+}
+
+/* Vertical scanline traveling down the right edge of the page */
+.scan-edge{
+  position:fixed;top:0;right:0;width:1px;height:30vh;z-index:50;
+  background:linear-gradient(180deg,transparent,var(--gold),transparent);
+  animation:scan-down 6s linear infinite;
+  pointer-events:none;opacity:.7;
+}
+@keyframes scan-down{
+  0%{transform:translateY(-30vh)}
+  100%{transform:translateY(100vh)}
+}
+
+/* Thin red horizontal divider with moving notch */
+.red-divider{
+  position:relative;height:1px;width:100%;
+  background:rgba(225,6,0,.18);overflow:hidden;
+}
+.red-divider::after{
+  content:"";position:absolute;top:-1px;left:0;width:80px;height:3px;
+  background:var(--gold);
+  animation:notch-slide 4s linear infinite;
+}
+@keyframes notch-slide{
+  0%{left:-10%}
+  100%{left:110%}
+}
 .headline{font-family:'Playfair Display',serif;font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.02em}
 .bebas{font-family:'Bebas Neue',sans-serif;letter-spacing:.05em}
 
