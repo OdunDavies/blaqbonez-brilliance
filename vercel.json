@@ -1,7 +1,6 @@
 {
-  "buildCommand": "bun run build",
-  "devCommand": "bun run dev",
-  "installCommand": "bun install",
-  "framework": "vite",
-  "outputDirectory": "dist"
+  "buildCommand": "bun install && bun run build || npm install && npm run build",
+  "startCommand": "node .output/server/index.mjs",
+  "outputDirectory": ".output",
+  "framework": "other"
 }
