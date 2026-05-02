@@ -171,7 +171,7 @@ body::before{
   border-bottom:1px solid rgba(225,6,0,.15);
 }
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.2em;color:var(--off)}
-.nav-logo span{color:var(--gold)}
+.nav-logo span{color:var(--off)}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{
   position:relative;color:var(--off);text-decoration:none;
@@ -215,7 +215,7 @@ body::before{
 .hero-name span{display:inline-block;opacity:0;transform:translateX(-200px) skewX(-20deg)}
 .hero-sub{
   margin-top:1.5rem;font-family:'Courier Prime',monospace;
-  font-size:clamp(.9rem,2vw,1.4rem);color:var(--gold);
+  font-size:clamp(.9rem,2vw,1.4rem);color:var(--off);
   letter-spacing:.3em;text-transform:uppercase;min-height:1.5em;
 }
 .hero-sub::after{content:"|";animation:blink 1s step-end infinite;margin-left:2px}
@@ -223,7 +223,7 @@ body::before{
 .hero-cta{
   display:inline-block;margin-top:2.5rem;
   padding:1rem 2.5rem;border:1.5px solid var(--gold);
-  color:var(--gold);text-decoration:none;
+  color:var(--off);text-decoration:none;
   font-family:'Courier Prime',monospace;letter-spacing:.3em;
   text-transform:uppercase;font-size:.85rem;
   background:transparent;
@@ -238,7 +238,7 @@ body::before{
 .hero-cta:hover::before{transform:translateY(0)}
 .scroll-indicator{
   position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
-  z-index:3;color:var(--gold);font-size:1.5rem;
+  z-index:3;color:var(--off);font-size:1.5rem;
   animation:bounce 2s infinite;
 }
 @keyframes bounce{
@@ -277,7 +277,7 @@ section{position:relative;padding:8rem 2.5rem;overflow:hidden}
   text-transform:uppercase;line-height:.9;
   margin-bottom:3rem;letter-spacing:-.02em;
 }
-.section-title .gold{color:var(--gold)}
+.section-title .gold{color:var(--off)}
 
 /* ABOUT */
 .about-grid{
@@ -294,11 +294,11 @@ section{position:relative;padding:8rem 2.5rem;overflow:hidden}
 .about-img::after{
   content:"BRIA";position:absolute;bottom:1rem;right:1rem;
   font-family:'Courier Prime',monospace;font-size:.7rem;
-  letter-spacing:.3em;color:var(--gold);
+  letter-spacing:.3em;color:var(--off);
   background:rgba(0,0,0,.6);padding:.4rem .7rem;
 }
 .about-text p{
-  font-size:1.05rem;line-height:1.8;color:rgba(225,6,0,.85);
+  font-size:1.05rem;line-height:1.8;color:rgba(245,245,240,.85);
   margin-top:1.5rem;font-weight:300;
 }
 .stats{
@@ -312,10 +312,10 @@ section{position:relative;padding:8rem 2.5rem;overflow:hidden}
 .stat{text-align:center}
 .stat-num{
   font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(2.5rem,5vw,4.5rem);color:var(--gold);
+  font-size:clamp(2.5rem,5vw,4.5rem);color:var(--off);
   line-height:1;display:block;
 }
-.stat-label{font-family:'Courier Prime',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(225,6,0,.6);margin-top:.5rem;display:block}
+.stat-label{font-family:'Courier Prime',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,245,240,.55);margin-top:.5rem;display:block}
 
 /* DISCOGRAPHY */
 .albums{
@@ -341,18 +341,18 @@ section{position:relative;padding:8rem 2.5rem;overflow:hidden}
   transform:rotateY(-8deg) rotateX(4deg) translateY(-10px);
   box-shadow:0 30px 60px -20px rgba(225,6,0,.4),0 0 40px rgba(225,6,0,.2);
 }
-.album-year{font-family:'Courier Prime',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--gold)}
+.album-year{font-family:'Courier Prime',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--off)}
 .album-title{font-family:'Playfair Display',serif;font-weight:900;font-size:1.8rem;margin:.5rem 0 1rem;text-transform:uppercase;line-height:1}
-.album-meta{font-size:.85rem;color:rgba(225,6,0,.6);line-height:1.6;margin-bottom:.8rem}
+.album-meta{font-size:.85rem;color:rgba(245,245,240,.55);line-height:1.6;margin-bottom:.8rem}
 .album-meta strong{color:var(--off);font-weight:500}
 .album-note{
   font-family:'Courier Prime',monospace;font-size:.7rem;
-  color:var(--gold);border-left:2px solid var(--gold);
+  color:var(--off);border-left:2px solid var(--gold);
   padding-left:.75rem;margin:1rem 0;letter-spacing:.1em;
 }
 .album-stream{
   display:inline-block;margin-top:1rem;padding:.6rem 1.5rem;
-  border:1px solid var(--gold);color:var(--gold);
+  border:1px solid var(--gold);color:var(--off);
   text-decoration:none;font-family:'Courier Prime',monospace;
   font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;
   transition:all .3s ease;
@@ -364,13 +364,13 @@ section{position:relative;padding:8rem 2.5rem;overflow:hidden}
 .flag-banner img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(.2) contrast(1.05)}
 .flag-banner .flag-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:3rem clamp(1.5rem,5vw,5rem);background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.85))}
 .flag-banner .flag-overlay h3{font-size:clamp(2.5rem,7vw,6rem);color:var(--off);margin-top:.5rem;line-height:.95}
-.flag-banner .flag-overlay .mono{color:var(--gold)}
+.flag-banner .flag-overlay .mono{color:var(--off)}
 
 /* SPOTIFY */
 .spotify-section{background:#080808;text-align:center}
 .spotify-wrap{max-width:900px;margin:0 auto}
 .spotify-wrap iframe{display:block;width:100%;border-radius:12px;box-shadow:0 0 60px rgba(225,6,0,.15)}
-.spotify-sub{margin-top:1.5rem;font-family:'Courier Prime',monospace;font-size:.85rem;color:var(--gold);letter-spacing:.2em;text-transform:uppercase}
+.spotify-sub{margin-top:1.5rem;font-family:'Courier Prime',monospace;font-size:.85rem;color:var(--off);letter-spacing:.2em;text-transform:uppercase}
 
 /* TIMELINE */
 .timeline{position:relative;max-width:1100px;margin:0 auto;padding:2rem 0}
@@ -392,8 +392,8 @@ section{position:relative;padding:8rem 2.5rem;overflow:hidden}
   background:#0f0f0f;border:1px solid rgba(225,6,0,.15);
   padding:1.5rem 1.75rem;
 }
-.t-year{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);line-height:1;margin-bottom:.5rem}
-.t-text{font-size:.95rem;line-height:1.6;color:rgba(225,6,0,.85);font-weight:300}
+.t-year{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--off);line-height:1;margin-bottom:.5rem}
+.t-text{font-size:.95rem;line-height:1.6;color:rgba(245,245,240,.85);font-weight:300}
 .t-entry.left .t-card{grid-column:1;text-align:right}
 .t-entry.right .t-card{grid-column:3}
 .t-entry.left .t-card-spacer{grid-column:3}
@@ -425,7 +425,7 @@ section{position:relative;padding:8rem 2.5rem;overflow:hidden}
 .social-tile svg{width:42px;height:42px;fill:var(--gold);flex-shrink:0;transition:fill .4s ease}
 .social-tile:hover svg{fill:var(--black)}
 .social-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.1em;display:block;line-height:1}
-.social-handle{font-family:'Courier Prime',monospace;font-size:.75rem;letter-spacing:.15em;color:rgba(225,6,0,.6);margin-top:.4rem;display:block;text-transform:uppercase}
+.social-handle{font-family:'Courier Prime',monospace;font-size:.75rem;letter-spacing:.15em;color:rgba(245,245,240,.55);margin-top:.4rem;display:block;text-transform:uppercase}
 
 /* FOOTER */
 .footer{
@@ -435,11 +435,11 @@ section{position:relative;padding:8rem 2.5rem;overflow:hidden}
   position:relative;
 }
 @media(max-width:768px){.footer{grid-template-columns:1fr;text-align:center;gap:2rem}}
-.footer-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:2.5rem;color:var(--gold);text-transform:uppercase;letter-spacing:-.02em}
+.footer-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:2.5rem;color:var(--off);text-transform:uppercase;letter-spacing:-.02em}
 .footer-nav{display:flex;justify-content:center;gap:2rem;list-style:none}
 .footer-nav a{color:var(--off);text-decoration:none;font-family:'Courier Prime',monospace;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s}
 .footer-nav a:hover{color:var(--gold)}
-.footer-copy{text-align:right;font-family:'Courier Prime',monospace;font-size:.7rem;letter-spacing:.15em;color:rgba(225,6,0,.5);text-transform:uppercase}
+.footer-copy{text-align:right;font-family:'Courier Prime',monospace;font-size:.7rem;letter-spacing:.15em;color:rgba(245,245,240,.45);text-transform:uppercase}
 @media(max-width:768px){.footer-copy{text-align:center}}
 
 /* Reveal helpers */
