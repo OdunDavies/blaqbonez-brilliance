@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BLAQBONEZ — Best Rapper In Africa</title>
 <meta name="description" content="Official site of Blaqbonez — Nigerian rapper, Chocolate City signee, self-proclaimed Best Rapper In Africa." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230a0a0a'/><text x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-weight='900' font-size='42' fill='%23f5f5f0'>B</text><rect x='6' y='52' width='52' height='3' fill='%23c8102e'/></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@900&family=Inter:wght@300;400;500;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
@@ -207,10 +208,17 @@ body::before{
 .hero-label{margin-bottom:1.5rem;opacity:0}
 .hero-name{
   font-family:'Playfair Display',serif;font-weight:900;
-  font-size:clamp(4rem,18vw,16rem);
+  font-size:clamp(3rem,13vw,16rem);
   text-transform:uppercase;line-height:.85;
   color:var(--off);letter-spacing:-.03em;
-  display:flex;justify-content:center;flex-wrap:wrap;
+  display:flex;justify-content:center;flex-wrap:nowrap;
+  width:100%;max-width:100%;
+}
+@media(max-width:640px){
+  .hero-name{font-size:clamp(2.4rem,11vw,5rem);letter-spacing:-.02em}
+  .hero-content{padding:0 1rem}
+  .hero-sub{font-size:.7rem;letter-spacing:.2em}
+  .hero-cta{padding:.85rem 1.75rem;font-size:.75rem;letter-spacing:.2em;margin-top:2rem}
 }
 .hero-name span{display:inline-block;opacity:0;transform:translateX(-200px) skewX(-20deg)}
 .hero-sub{
