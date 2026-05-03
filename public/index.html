@@ -774,6 +774,20 @@ window.addEventListener('load', () => {
   const nav = document.getElementById('nav');
   window.addEventListener('scroll',()=>{ nav.classList.toggle('scrolled', window.scrollY>50); });
 
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(navToggle && navLinks){
+    const closeMenu = ()=>{ navToggle.classList.remove('open'); navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+    navToggle.addEventListener('click',()=>{
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', open?'true':'false');
+      document.body.style.overflow = open?'hidden':'';
+    });
+    navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+  }
+
   if (typeof gsap === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
 
