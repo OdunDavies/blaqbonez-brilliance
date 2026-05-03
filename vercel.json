@@ -1,6 +1,8 @@
 {
-  "cleanUrls": false,
-  "rewrites": [
-    { "source": "/", "destination": "/blaqbonez.html" }
-  ]
+  "buildCommand": null,
+  "installCommand": null,
+  "framework": null,
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "trailingSlash": false
 }
