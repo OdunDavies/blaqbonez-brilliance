@@ -208,10 +208,17 @@ body::before{
 .hero-label{margin-bottom:1.5rem;opacity:0}
 .hero-name{
   font-family:'Playfair Display',serif;font-weight:900;
-  font-size:clamp(4rem,18vw,16rem);
+  font-size:clamp(3rem,13vw,16rem);
   text-transform:uppercase;line-height:.85;
   color:var(--off);letter-spacing:-.03em;
-  display:flex;justify-content:center;flex-wrap:wrap;
+  display:flex;justify-content:center;flex-wrap:nowrap;
+  width:100%;max-width:100%;
+}
+@media(max-width:640px){
+  .hero-name{font-size:clamp(2.4rem,11vw,5rem);letter-spacing:-.02em}
+  .hero-content{padding:0 1rem}
+  .hero-sub{font-size:.7rem;letter-spacing:.2em}
+  .hero-cta{padding:.85rem 1.75rem;font-size:.75rem;letter-spacing:.2em;margin-top:2rem}
 }
 .hero-name span{display:inline-block;opacity:0;transform:translateX(-200px) skewX(-20deg)}
 .hero-sub{
